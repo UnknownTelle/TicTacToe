@@ -8,6 +8,11 @@
     height: 500px;
     width: 500px;
     margin: auto auto;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: center;
+    font-size: 50px;
+    font-family: sans-serif;
 }
 .game{
     background-color: white;
