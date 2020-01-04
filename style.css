@@ -1,20 +1,39 @@
-.h1{
-    text-align: center;
+h1{
+    text-align:center;
     font-size: 50px;
 }
 .game-bored{
     display: grid;
-    grid-template-columns: auto auto auto;
-    height: 500px;
-    width: 500px;
-    margin: auto auto;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
+    height: 450px;
+    width: 450px;
+    margin: auto;
     cursor: pointer;
-    text-align: center;
-    vertical-align: center;
-    font-size: 50px;
+    font-size: 75px;
     font-family: sans-serif;
 }
 .game{
     background-color: white;
     border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.start{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.PlayerInfo{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.info{
+    margin-right: 30px;
+    margin-left: 30px;
 }
