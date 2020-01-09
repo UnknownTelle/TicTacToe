@@ -61,11 +61,11 @@ function sameString(arr) {
 
 function endGame(win) {
     if (win[0] === player1){
-        window.alert("Game Over! Player One Wins");
-    } else if (win[0] === player2){
-        window.alert("Game Over! Player Two Wins");
-    } else {
-        window.alert("Game Over! It was a draw");
+        TernOnLights(`1`, 0,true);
+        //window.alert("Game Over! Player One Wins");
+    } else if (win[0] === player2) {
+        TernOnLights('1', 40000, true);
+        //window.alert("Game Over! Player Two Wins");
     }
 }
 
@@ -82,17 +82,34 @@ function checkForWinner(){
     });
     return winner;
 }
+//get connected
+function GetLightURI(id) {
+    var IP = "http://192.168.0.50/api/";
+    var username = "stlaB2I6VZ8O80Qepc-1xfmLrHgyTFvB9IGupaQz";
+    var lights = "/lights/";
+    var URI = IP + username + lights;
+    return URI + id + "/";
+}
+
+function TernOnLights(id, colour, on) {
+        var colourLight = {"on": on, "hue": colour};
+        $.ajax({
+            url: GetLightURI(id) + "state/",
+            type: "PUT",
+            data: JSON.stringify(colourLight)
+            })
+    }
+
+
 <!-- HTML buttons code -->
 function startGame() {
     winner = false;
     gameBoard = Array.from(document.getElementsByClassName("game"));
     playOneListener();
+    TernOnLights(1, 0, false);
     for(var i = 0; i < gameBoard.length; i++){
         boxes[i].innerText = "";
     }
-}
-function PlayerInfo() {
-    window.alert("Player One: Symbol = X , Light colour = Red \nPlayer Two: Symbol = O , Light colour = Blue");
 }
 function info() {
     window.alert("How To Play:\nEach player will take it in turns to add a symbol to the playing board." +
